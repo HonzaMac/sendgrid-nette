@@ -1,5 +1,5 @@
 {
-    "name": "istrix/sendgrid-nette",
+    "name": "honzamac/sendgrid-nette",
     "description": "Sendgrid integration for Nette mailer",
     "require": {
         "php": ">=5.4.0",
