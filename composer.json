@@ -2,9 +2,9 @@
     "name": "honzamac/sendgrid-nette",
     "description": "Sendgrid integration for Nette mailer",
     "require": {
-        "php": ">=5.4.0",
+        "php": ">=7.1.0",
         "nette/mail": "~2.4.4",
-        "sendgrid/sendgrid": "^4.0"
+        "sendgrid/sendgrid": "^7.0.0"
     },
     "license": "BSD-3",
     "autoload": {

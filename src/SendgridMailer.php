@@ -6,7 +6,7 @@ use Nette\Mail\IMailer;
 use Nette\Mail\Message;
 use Nette\SmartObject;
 use SendGrid;
-use SendGrid\Email;
+use SendGrid\Mail\Mail;
 
 class SendgridMailer implements IMailer
 {
@@ -47,23 +47,20 @@ class SendgridMailer implements IMailer
      * Sends email to sendgrid
      *
      * @param Message $message
-     *
-     * @throws SendGrid\Exception
      */
     public function send(Message $message)
     {
         $sendGrid = new SendGrid($this->key);
-        $email = new Email();
+        $email = new Mail();
 
         $from = $message->getFrom();
         reset($from);
         $key = key($from);
 
-        $email->setFrom($key)
-            ->setFromName($from[$key])
-            ->setSubject($message->getSubject())
-            ->setText($message->getBody())
-            ->setHtml($message->getHtmlBody());
+        $email->setFrom($key, $from[$key]);
+        $email->setSubject($message->getSubject());
+        $email->addContent("text/plain", $message->getBody());
+        $email->addContent("text/html", $message->getHtmlBody());
 
         foreach ($message->getAttachments() as $attachement) {
             $header = $attachement->getHeader('Content-Disposition');
