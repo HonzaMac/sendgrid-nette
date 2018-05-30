@@ -3,7 +3,7 @@
     "description": "Sendgrid integration for Nette mailer",
     "require": {
         "php": ">=7.1.0",
-        "nette/mail": "~2.4.4",
+        "nette/mail": "~2.4.5",
         "sendgrid/sendgrid": "^7.0.0"
     },
     "license": "BSD-3",
